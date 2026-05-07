@@ -23,4 +23,8 @@ exports.incrementNumber = (req,res) => {
 User.incrementNumber(req.params.id);
 res.redirect('/users');
 }
+exports.decrementNumber = (req,res) => {
+User.decrementNumber(req.params.id);
+res.redirect('/users');
+}
 };

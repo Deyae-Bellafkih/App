@@ -22,7 +22,10 @@
   <form action="/users/increment/<%user.id %>" method="POST" style="display:inline;">
        <button type="submit">Aumenta</button>
        </form>
-    <% }) %>
+   <form action="/users/decrement/<%user.id %>" method="POST" style="display:inline;">
+          <button type="submit">Diminuisci</button>
+          </form>
+   <% }) %>
   </ul>
   <a href="/">Torna alla home</a>
 </body>

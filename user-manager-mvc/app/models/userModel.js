@@ -25,6 +25,15 @@ const User = {
   }
   return user;
   }
+
+  decrementNumber: (id) => {
+    const user = users.find(u => u.id === parseInt(id));
+    if (user) {
+    user.number = (parseInt(user.number) || 0) - 1;
+    }
+    return user;
+    }
+
 };
 
 module.exports = User;
