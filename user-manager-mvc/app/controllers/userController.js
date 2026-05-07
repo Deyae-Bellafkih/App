@@ -1,16 +1,21 @@
-// app/models/userModel.js
-let users = [];
-const User = {
-  findAll: () => users,
-  create: (name, email, linkImg) => {
-    const newUser = { id: Date.now(), name, email, linkImg };
-    users.push(newUser);
-    return newUser;
-  },
-  findById: (id) => users.find(u => u.id === parseInt(id)),
-  delete: (id) => {
-    users = users.filter(u => u.id !== parseInt(id));
-  }
+const User = require('../models/userModel');
+
+exports.home = (req, res) => {
+  res.redirect('/users');
 };
 
-module.exports = User;
+exports.listUsers = (req, res) => {
+  const users = User.findAll();
+  res.render('users', { users });
+};
+
+exports.createUser = (req, res) => {
+  const { name, email, linkImg, prezzo, numero } = req.body;
+  User.create(name, email, linkImg, prezzo, numero);
+  res.redirect('/users');
+};
+
+exports.deleteUser = (req, res) => {
+  User.delete(req.params.id);
+  res.redirect('/users');
+};

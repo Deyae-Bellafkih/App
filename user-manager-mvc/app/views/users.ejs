@@ -7,12 +7,14 @@
     <input type="text" name="name" placeholder="Nome" required>
     <input type="email" name="email" placeholder="Email" required>
     <input type="url" name="linkImg" placeholder="Link immagine" required>
+    <input type="text" name="prezzo" placeholder="Prezzo" required>
+    <input type="number" name="numero" placeholder="Numero" required>
     <button type="submit">Aggiungi</button>
   </form>
   <ul>
     <% users.forEach(user => { %>
       <li>
-        <%= user.name %> - <%= user.email %> - <img src = "<%= user.linkImg%>" width="100">
+        <%= user.name %> - <%= user.email %> - <img src = "<%= user.linkImg%>" width="100"> - <%= user.prezzo %> - <%= user.numero %>
         <form action="/users/delete/<%= user.id %>" method="POST" style="display:inline;">
           <button type="submit">Elimina</button>
         </form>
