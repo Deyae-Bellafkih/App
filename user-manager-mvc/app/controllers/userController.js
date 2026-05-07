@@ -18,4 +18,9 @@ exports.createUser = (req, res) => {
 exports.deleteUser = (req, res) => {
   User.delete(req.params.id);
   res.redirect('/users');
+
+exports.incrementNumber = (req,res) => {
+User.incrementNumber(req.params.id);
+res.redirect('/users');
+}
 };
